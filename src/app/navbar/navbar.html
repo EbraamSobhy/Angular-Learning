@@ -1,0 +1,49 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a class="logo" routerLink="/" (click)="closeMenu()"> MyApp </a>
+
+    <div class="nav-links">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+          Home
+      </a>
+
+       <a
+        routerLink="/about"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+          About
+      </a>
+    </div>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="menuOpen()"
+      (click)="toggleMenu()"
+    >
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <div class="mobile-menu">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+      >
+        Home
+      </a>
+
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()"> About </a>
+
+      <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()"> Services </a>
+
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()"> Contact </a>
+    </div>
+  }
+</nav>
